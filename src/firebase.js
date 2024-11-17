@@ -1,21 +1,22 @@
-import dotenv from 'dotenv';
+
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
-dotenv.config();
-
-console.log(process.env.FIREBASE_API_KEY);
-console.log(process.env.FIREBASE_PROJECT_ID);
-console.log(process.env.FIREBASE_STORAGE_BUCKET);
-
 
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
+    // apiKey: "AIzaSyAntNiYvmBQ7qQLd71SiR0d3FkwuOqYbOc",
+    // authDomain: "col-survey.firebaseapp.com",
+    // projectId: "col-survey",
+    // storageBucket: "col-survey.firebasestorage.app",
+    // messagingSenderId: "132564655754",
+    // appId: "1:132564655754:web:f6ae983e3e32ba3dd29773",
+    // measurementId: "G-R47NTS9576"
     apiKey: process.env.FIREBASE_API_KEY,
     authDomain: process.env.FIREBASE_AUTH_DOMAIN,
     projectId: process.env.FIREBASE_PROJECT_ID,
@@ -29,4 +30,5 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-export { db }
+
+export { db, firebaseConfig }
