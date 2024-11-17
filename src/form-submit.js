@@ -1,10 +1,14 @@
 import { db, firebaseConfig } from './firebase.js'; // Adjust the path as needed
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js";
+
+// "firebase/firestore";
 
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('surveyForm');
 
     console.log(firebaseConfig.apiKey)
+    console.log(firebaseConfig.authDomain)
+
 
     form.addEventListener('submit', async function (event) {
         event.preventDefault(); // Prevent default form submission
