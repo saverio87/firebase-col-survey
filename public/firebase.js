@@ -14,18 +14,18 @@ dotenv.config();
 const firebaseConfig = {
     // apiKey: "AIzaSyAntNiYvmBQ7qQLd71SiR0d3FkwuOqYbOc",
     // authDomain: "col-survey.firebaseapp.com",
-    projectId: "col-survey",
-    storageBucket: "col-survey.firebasestorage.app",
-    messagingSenderId: "132564655754",
-    appId: "1:132564655754:web:f6ae983e3e32ba3dd29773",
-    measurementId: "G-R47NTS9576",
+    // projectId: "col-survey",
+    // storageBucket: "col-survey.firebasestorage.app",
+    // messagingSenderId: "132564655754",
+    // appId: "1:132564655754:web:f6ae983e3e32ba3dd29773",
+    // measurementId: "G-R47NTS9576",
     apiKey: process.env.FIREBASE_API_KEY,
     authDomain: process.env.FIREBASE_AUTH_DOMAIN,
-    // projectId: process.env.FIREBASE_PROJECT_ID,
-    // storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
-    // messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
-    // appId: process.env.FIREBASE_APP_ID,
-    // measurementId: process.env.FIREBASE_MEASUREMENT_ID,
+    projectId: process.env.FIREBASE_PROJECT_ID,
+    storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
+    appId: process.env.FIREBASE_APP_ID,
+    measurementId: process.env.FIREBASE_MEASUREMENT_ID
 };
 
 // Initialize Firebase
