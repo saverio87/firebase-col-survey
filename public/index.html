@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey</title>
+    <!-- Link the CSS file -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Link Firebase JavaScript File -->
+    <script type="module" src="firebase.js"></script>
+    <!-- Link formSubmit -->
+    <script src="../src/form-submit.js"></script>
+    <div class="formbold-main-wrapper">
+        <div class="formbold-form-wrapper">
+            <img src="banner.jpg" alt="Survey Image">
+            <hr>
+            <div class="intro formbold-form-label">
+                <p>If you’re here, you’re likely teaching in China—or considering it—and looking for answers to the same
+                    questions many of us have: “How much should I earn in City X?” “Can I save in City Y?” “What’s rent
+                    like in Z?” After years of seeing these questions repeated on Reddit and WeChat, I decided to
+                    collect real experiences and cost-of-living insights from teachers like you.</p>
+                <p>This survey aims to create a snapshot of life for teachers across China, helping others make informed
+                    decisions about moving cities, negotiating contracts, or planning their finances. Your privacy
+                    matters—feel free to use a nickname, skip questions, or provide rough estimates instead of exact
+                    figures.</p>
+                <p>The survey is a bit long, so I truly appreciate your time. In two weeks, I’ll share the compiled
+                    results to benefit everyone. Thank you for helping us all navigate teaching in China!</p>
+            </div>
+            <hr>
+            <br>
+            <form id="surveyForm" method="POST">
+                <!-- Name or Nickname -->
+                <div class="formbold-input-group">
+                    <label for="name" class="formbold-form-label">Your name or nickname</label>
+                    <input type="text" name="name" id="name" placeholder="Enter your name or nickname"
+                        class="formbold-form-input" />
+                </div>
+
+                <!-- Location Dropdown -->
+                <div class="formbold-input-group">
+                    <label for="location" class="formbold-form-label">Where are you located?</label>
+                    <select name="location" id="location" class="formbold-form-select">
+                        <option value="" disabled selected>Select your city</option>
+                        <!-- Beijing and surrounding areas -->
+                        <optgroup label="Beijing and surrounding areas">
+                            <option value="Beijing">Beijing</option>
+                            <option value="Tianjin">Tianjin</option>
+                        </optgroup>
+
+                        <!-- Guangdong Province -->
+                        <optgroup label="Guangdong Province">
+                            <option value="Guangzhou">Guangzhou</option>
+                            <option value="Shenzhen">Shenzhen</option>
+                            <option value="Dongguan">Dongguan</option>
+                            <option value="Foshan">Foshan</option>
+                            <option value="Zhuhai">Zhuhai</option>
+                            <option value="Huizhou">Huizhou</option>
+                        </optgroup>
+
+                        <!-- Jiangsu Province -->
+                        <optgroup label="Jiangsu Province">
+                            <option value="Nanjing">Nanjing</option>
+                            <option value="Suzhou">Suzhou</option>
+                            <option value="Wuxi">Wuxi</option>
+                            <option value="Changzhou">Changzhou</option>
+                            <option value="Yangzhou">Yangzhou</option>
+                        </optgroup>
+
+                        <!-- Zhejiang Province -->
+                        <optgroup label="Zhejiang Province">
+                            <option value="Hangzhou">Hangzhou</option>
+                            <option value="Ningbo">Ningbo</option>
+                            <option value="Shaoxing">Shaoxing</option>
+                            <option value="Jiaxing">Jiaxing</option>
+                        </optgroup>
+
+                        <!-- Shanghai -->
+                        <optgroup label="Shanghai">
+                            <option value="Shanghai">Shanghai</option>
+                        </optgroup>
+
+                        <!-- Shandong Province -->
+                        <optgroup label="Shandong Province">
+                            <option value="Qingdao">Qingdao</option>
+                            <option value="Jinan">Jinan</option>
+                            <option value="Yantai">Yantai</option>
+                            <option value="Zibo">Zibo</option>
+                        </optgroup>
+
+                        <!-- Sichuan Province -->
+                        <optgroup label="Sichuan Province">
+                            <option value="Chengdu">Chengdu</option>
+                            <option value="Mianyang">Mianyang</option>
+                            <option value="Deyang">Deyang</option>
+                            <option value="Nanchong">Nanchong</option>
+                        </optgroup>
+
+                        <!-- Hunan Province -->
+                        <optgroup label="Hunan Province">
+                            <option value="Changsha">Changsha</option>
+                            <option value="Zhuzhou">Zhuzhou</option>
+                            <option value="Xiangtan">Xiangtan</option>
+                        </optgroup>
+
+                        <!-- Henan Province -->
+                        <optgroup label="Henan Province">
+                            <option value="Zhengzhou">Zhengzhou</option>
+                            <option value="Luoyang">Luoyang</option>
+                            <option value="Kaifeng">Kaifeng</option>
+                        </optgroup>
+
+                        <!-- Hebei Province -->
+                        <optgroup label="Hebei Province">
+                            <option value="Shijiazhuang">Shijiazhuang</option>
+                            <option value="Tangshan">Tangshan</option>
+                            <option value="Baoding">Baoding</option>
+                            <option value="Handan">Handan</option>
+                            <option value="Zhangjiakou">Zhangjiakou</option>
+                            <option value="Cangzhou">Cangzhou</option>
+                        </optgroup>
+
+                        <!-- Anhui Province -->
+                        <optgroup label="Anhui Province">
+                            <option value="Hefei">Hefei</option>
+                            <option value="Wuhu">Wuhu</option>
+                            <option value="Ma'anshan">Ma'anshan</option>
+                        </optgroup>
+
+                        <!-- Liaoning Province -->
+                        <optgroup label="Liaoning Province">
+                            <option value="Shenyang">Shenyang</option>
+                            <option value="Dalian">Dalian</option>
+                            <option value="Anshan">Anshan</option>
+                        </optgroup>
+
+                        <!-- Heilongjiang Province -->
+                        <optgroup label="Heilongjiang Province">
+                            <option value="Harbin">Harbin</option>
+                            <option value="Qiqihar">Qiqihar</option>
+                            <option value="Mudanjiang">Mudanjiang</option>
+                        </optgroup>
+
+                        <!-- Jiangxi Province -->
+                        <optgroup label="Jiangxi Province">
+                            <option value="Nanchang">Nanchang</option>
+                            <option value="Jiujiang">Jiujiang</option>
+                            <option value="Yingtan">Yingtan</option>
+                        </optgroup>
+
+                        <!-- Fujian Province -->
+                        <optgroup label="Fujian Province">
+                            <option value="Fuzhou">Fuzhou</option>
+                            <option value="Xiamen">Xiamen</option>
+                            <option value="Quanzhou">Quanzhou</option>
+                        </optgroup>
+
+                        <!-- Shaanxi Province -->
+                        <optgroup label="Shaanxi Province">
+                            <option value="Xi'an">Xi'an</option>
+                            <option value="Baoji">Baoji</option>
+                            <option value="Xianyang">Xianyang</option>
+                        </optgroup>
+
+                        <!-- Chongqing -->
+                        <optgroup label="Chongqing">
+                            <option value="Chongqing">Chongqing</option>
+                        </optgroup>
+
+                        <!-- Inner Mongolia -->
+                        <optgroup label="Inner Mongolia">
+                            <option value="Hohhot">Hohhot</option>
+                            <option value="Baotou">Baotou</option>
+                        </optgroup>
+
+                        <!-- Xinjiang Uygur Autonomous Region -->
+                        <optgroup label="Xinjiang Uygur Autonomous Region">
+                            <option value="Urumqi">Urumqi</option>
+                            <option value="Kashgar">Kashgar</option>
+                        </optgroup>
+
+                        <!-- Tibet Autonomous Region -->
+                        <optgroup label="Tibet Autonomous Region">
+                            <option value="Lhasa">Lhasa</option>
+                        </optgroup>
+
+                        <!-- Hubei Province -->
+                        <optgroup label="Hubei Province">
+                            <option value="Wuhan">Wuhan</option>
+                            <option value="Xiaogan">Xiaogan</option>
+                            <option value="Yichang">Yichang</option>
+                        </optgroup>
+
+                        <!-- Gansu Province -->
+                        <optgroup label="Gansu Province">
+                            <option value="Lanzhou">Lanzhou</option>
+                            <option value="Tianshui">Tianshui</option>
+                        </optgroup>
+
+                        <!-- Qinghai Province -->
+                        <optgroup label="Qinghai Province">
+                            <option value="Xining">Xining</option>
+                        </optgroup>
+
+                        <!-- Ningxia Hui Autonomous Region -->
+                        <optgroup label="Ningxia Hui Autonomous Region">
+                            <option value="Yinchuan">Yinchuan</option>
+                        </optgroup>
+
+                        <!-- Guizhou Province -->
+                        <optgroup label="Guizhou Province">
+                            <option value="Guiyang">Guiyang</option>
+                        </optgroup>
+
+                        <!-- Yunnan Province -->
+                        <optgroup label="Yunnan Province">
+                            <option value="Kunming">Kunming</option>
+                            <option value="Dali">Dali</option>
+                            <option value="Lijiang">Lijiang</option>
+                            <option value="Xishuangbanna">Xishuangbanna</option>
+                        </optgroup>
+
+                        <!-- Hainan Province -->
+                        <optgroup label="Hainan Province">
+                            <option value="Haikou">Haikou</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <!-- Monthly Income -->
+                <div class="formbold-input-group">
+                    <label for="income" class="formbold-form-label">Your monthly income, in RMB</label>
+                    <input type="text" name="income" id="income" class="formbold-form-input" />
+                </div>
+
+                <!-- Income Breakdown -->
+                <div class="formbold-input-group">
+                    <label for="income_breakdown" class="formbold-form-label">Q1. How is that income broken down?
+                        (full-time
+                        salary, private students, on-line teaching, extra work, etc)</label>
+                    <textarea name="income_breakdown" id="income_breakdown" rows="5"
+                        class="formbold-form-input"></textarea>
+                </div>
+
+                <!-- Saving Amount -->
+                <div class="formbold-input-group">
+                    <label for="savings" class="formbold-form-label">Q2. How much money can you save each month?</label>
+                    <textarea rows="5" name="savings" id="savings" class="formbold-form-input"></textarea>
+                </div>
+
+                <!-- Accommodation Costs -->
+                <div class="formbold-input-group">
+                    <label for="accommodation" class="formbold-form-label">Q3. How much do you pay for your
+                        accommodation
+                        and what do you live in exactly (house, apartment, condo)?</label>
+                    <textarea name="accommodation" id="accommodation" rows="5" class="formbold-form-input"></textarea>
+                </div>
+
+                <!-- Monthly Spending -->
+                <label for="" class="formbold-form-label">Q4. What do you spend a month on the following
+                    things?</label>
+                <div class="formbold-input-group sub-group">
+                    <label for="transportation" class="formbold-form-label">Transportation</label>
+                    <textarea rows="5" name="transportation" id="transportation" class="formbold-form-input"></textarea>
+
+                    <label for="utilities" class="formbold-form-label">Utility bills</label>
+                    <textarea rows="5" name="utilities" id="utilities" class="formbold-form-input"></textarea>
+
+                    <label for="food" class="formbold-form-label">Food - both restaurants and supermarket
+                        shopping</label>
+                    <textarea rows="5" name="food" id="food" class="formbold-form-input"></textarea>
+
+                    <label for="nightlife" class="formbold-form-label">Nightlife and drinking</label>
+                    <textarea rows="5" name="nightlife" id="nightlife" class="formbold-form-input"></textarea>
+                </div>
+
+                <!-- Standard of living -->
+                <div class="formbold-input-group">
+                    <div class="formbold-input-group"></div>
+                    <label for="standard_of_living" class="formbold-form-label">Q5. How would you summarize your
+                        standard of
+                        living in one sentence?</label>
+                    <textarea name="standard_of_living" id="standard_of_living" rows="5"
+                        class="formbold-form-input"></textarea>
+                </div>
+
+                <!-- Bargain -->
+                <div class="formbold-input-group">
+                    <label for="bargain" class="formbold-form-label">Q6. What do you consider to be a real 'bargain'
+                        here?</label>
+                    <textarea name="bargain" id="bargain" rows="5" class="formbold-form-input"></textarea>
+                </div>
+
+                <!-- Minimum Survival Income -->
+                <div class="formbold-input-group">
+                    <label for="survival_income" class="formbold-form-label">Q7. In your opinion, how much money does
+                        anyone
+                        need to earn here in order to survive?</label>
+                    <textarea rows="5" name="survival_income" id="survival_income"
+                        class="formbold-form-input"></textarea>
+                </div>
+
+                <button type="submit" class="formbold-btn">Submit</button>
+            </form>
+        </div>
+    </div>
+
+
+
+
+</body>
+
+</html>
